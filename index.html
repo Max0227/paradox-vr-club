@@ -68,25 +68,341 @@
 
 <section class="hero">
   <div class="scan-effect"></div>
-  <div>
-    <div class="hero-badge">НОВОСИБИРСК · ВИКТОРА ШЕВЕЛЕВА 24 · 4 ГОДА!</div>
-    <h1 class="hero-title"><span class="line1">PARADOX</span><span class="line2">VR CLUB</span></h1>
-    <p class="hero-subtitle">70м² киберпространства · до 12 гостей · <span>VR | PS5 | MOZA</span></p>
+  
+  <!-- Анимированные неоновые линии по углам -->
+  <div style="position: absolute; top: 20px; left: 20px; width: 60px; height: 60px; border-top: 2px solid var(--neon-cyan); border-left: 2px solid var(--neon-cyan); box-shadow: 0 0 10px var(--neon-cyan); pointer-events: none;"></div>
+  <div style="position: absolute; top: 20px; right: 20px; width: 60px; height: 60px; border-top: 2px solid var(--neon-pink); border-right: 2px solid var(--neon-pink); box-shadow: 0 0 10px var(--neon-pink); pointer-events: none;"></div>
+  <div style="position: absolute; bottom: 20px; left: 20px; width: 60px; height: 60px; border-bottom: 2px solid var(--neon-pink); border-left: 2px solid var(--neon-pink); box-shadow: 0 0 10px var(--neon-pink); pointer-events: none;"></div>
+  <div style="position: absolute; bottom: 20px; right: 20px; width: 60px; height: 60px; border-bottom: 2px solid var(--neon-cyan); border-right: 2px solid var(--neon-cyan); box-shadow: 0 0 10px var(--neon-cyan); pointer-events: none;"></div>
+  
+  <!-- Парящие неоновые частицы -->
+  <div class="hero-particles">
+    <div class="hero-particle" style="top: 15%; left: 10%; animation-delay: 0s;"></div>
+    <div class="hero-particle" style="top: 70%; left: 85%; animation-delay: 2s;"></div>
+    <div class="hero-particle" style="top: 85%; left: 20%; animation-delay: 4s;"></div>
+    <div class="hero-particle" style="top: 30%; left: 90%; animation-delay: 1s;"></div>
+    <div class="hero-particle" style="top: 50%; left: 5%; animation-delay: 3s;"></div>
+  </div>
+  
+  <div class="hero-content">
+    <div class="hero-badge" style="position: relative; overflow: hidden;">
+      <span style="position: relative; z-index: 1;">⚡ НОВОСИБИРСК · ВИКТОРА ШЕВЕЛЕВА 24 · 4 ГОДА! ⚡</span>
+      <span style="position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(0,245,255,0.3), transparent); animation: shine 3s infinite;"></span>
+    </div>
+    
+    <h1 class="hero-title">
+      <span class="line1 glitch-text" data-text="PARADOX">PARADOX</span>
+      <span class="line2 neon-flicker">VR CLUB</span>
+    </h1>
+    
+    <p class="hero-subtitle">
+      <span class="typed-text"></span>
+      70м² киберпространства · до 12 гостей · <span class="neon-text-highlight">VR | PS5 | MOZA</span>
+    </p>
+    
     <div class="hero-stats">
-      <div class="hero-stat"><div class="hero-stat-num">40+</div><div class="hero-stat-label">VR ИГР</div></div>
-      <div class="hero-stat"><div class="hero-stat-num">48+</div><div class="hero-stat-label">СИМУЛЯТОР</div></div>
-      <div class="hero-stat"><div class="hero-stat-num">12</div><div class="hero-stat-label">МЕСТ</div></div>
-      <div class="hero-stat"><div class="hero-stat-num">7/7</div><div class="hero-stat-label">12:00–22:00</div></div>
-      <div class="hero-stat"><div class="hero-stat-num">🚗</div><div class="hero-stat-label">Парковка</div></div>
-      <div class="hero-stat"><div class="hero-stat-num">🍕</div><div class="hero-stat-label">Своя еда</div></div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">40<span style="font-size: 1rem;">+</span></div>
+        <div class="hero-stat-label">VR ИГР</div>
+        <div class="stat-glow"></div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">48<span style="font-size: 1rem;">+</span></div>
+        <div class="hero-stat-label">СИМУЛЯТОР</div>
+        <div class="stat-glow"></div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">12</div>
+        <div class="hero-stat-label">МЕСТ</div>
+        <div class="stat-glow"></div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">7/7</div>
+        <div class="hero-stat-label">12:00–22:00</div>
+        <div class="stat-glow"></div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">🚗</div>
+        <div class="hero-stat-label">Парковка</div>
+        <div class="stat-glow"></div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">🍕</div>
+        <div class="hero-stat-label">Своя еда</div>
+        <div class="stat-glow"></div>
+      </div>
     </div>
+    
     <div class="hero-buttons">
-      <a href="#" class="btn-primary" onclick="openModal('booking')">📅 ЗАПИСАТЬСЯ</a>
-      <a href="#pricing" class="btn-secondary">💰 ТАРИФЫ</a>
+      <a href="#" class="btn-primary cyber-btn" onclick="openModal('booking')">
+        <span class="btn-text">📅 ЗАПИСАТЬСЯ</span>
+        <span class="btn-glow"></span>
+      </a>
+      <a href="#pricing" class="btn-secondary cyber-btn">
+        <span class="btn-text">💰 ТАРИФЫ</span>
+        <span class="btn-glow"></span>
+      </a>
     </div>
-    <div class="hours-badge"><span class="hours-dot"></span> ЕЖЕДНЕВНО 12:00 – 22:00 · БЕЗ ВЫХОДНЫХ</div>
+    
+    <div class="hours-badge cyber-badge">
+      <span class="hours-dot"></span>
+      <span>ЕЖЕДНЕВНО 12:00 – 22:00 · БЕЗ ВЫХОДНЫХ</span>
+      <span class="badge-scan"></span>
+    </div>
   </div>
 </section>
+
+<style>
+/* Дополнительные стили для HERO секции */
+
+/* Анимированные частицы */
+.hero-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.hero-particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: var(--neon-cyan);
+  border-radius: 50%;
+  opacity: 0;
+  box-shadow: 0 0 10px var(--neon-cyan);
+  animation: particleFloat 6s ease-in-out infinite;
+}
+
+@keyframes particleFloat {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.8;
+  }
+  80% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(-100px) translateX(50px);
+    opacity: 0;
+  }
+}
+
+/* Glitch эффект для заголовка */
+.glitch-text {
+  position: relative;
+  animation: glitch 3s infinite;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--dark-bg);
+}
+
+.glitch-text::before {
+  color: var(--neon-pink);
+  z-index: -1;
+  animation: glitch-before 2s infinite;
+}
+
+.glitch-text::after {
+  color: var(--neon-cyan);
+  z-index: -2;
+  animation: glitch-after 2s infinite;
+}
+
+@keyframes glitch {
+  0%, 100% { transform: skew(0deg, 0deg); }
+  95% { transform: skew(0deg, 0deg); }
+  96% { transform: skew(2deg, 1deg); }
+  97% { transform: skew(-1deg, -0.5deg); }
+  98% { transform: skew(0.5deg, 0.2deg); }
+}
+
+@keyframes glitch-before {
+  0%, 100% { transform: translate(0); opacity: 0.5; }
+  95% { transform: translate(0); }
+  96% { transform: translate(-2px, -1px); }
+  97% { transform: translate(1px, 0.5px); }
+}
+
+@keyframes glitch-after {
+  0%, 100% { transform: translate(0); opacity: 0.5; }
+  95% { transform: translate(0); }
+  96% { transform: translate(2px, 1px); }
+  97% { transform: translate(-1px, -0.5px); }
+}
+
+/* Neon flicker для подзаголовка */
+.neon-flicker {
+  animation: neonFlicker 2s infinite;
+}
+
+@keyframes neonFlicker {
+  0%, 100% { text-shadow: 0 0 5px var(--neon-pink), 0 0 10px var(--neon-pink); opacity: 1; }
+  50% { text-shadow: 0 0 15px var(--neon-pink), 0 0 25px var(--neon-pink); opacity: 0.95; }
+  51% { text-shadow: 0 0 3px var(--neon-pink); opacity: 0.98; }
+}
+
+.neon-text-highlight {
+  color: var(--neon-yellow);
+  text-shadow: 0 0 10px var(--neon-yellow);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { text-shadow: 0 0 5px var(--neon-yellow); }
+  50% { text-shadow: 0 0 15px var(--neon-yellow), 0 0 20px var(--neon-yellow); }
+}
+
+/* Статистика с эффектом свечения */
+.hero-stat {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.hero-stat:hover {
+  transform: translateY(-5px);
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 20px rgba(0,245,255,0.3);
+}
+
+.stat-glow {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--neon-cyan), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.3s;
+}
+
+.hero-stat:hover .stat-glow {
+  transform: translateX(100%);
+}
+
+/* Кибер-кнопки */
+.cyber-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-glow {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.5s;
+}
+
+.cyber-btn:hover .btn-glow {
+  left: 100%;
+}
+
+.btn-text {
+  position: relative;
+  z-index: 1;
+}
+
+/* Анимация для бейджа */
+.cyber-badge {
+  position: relative;
+  overflow: hidden;
+}
+
+.badge-scan {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0,255,100,0.2), transparent);
+  animation: badgeScan 3s infinite;
+}
+
+@keyframes badgeScan {
+  0% { left: -100%; }
+  50% { left: 100%; }
+  100% { left: 100%; }
+}
+
+/* Эффект сияния для углов */
+@keyframes shine {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* Анимация появления текста */
+.hero-subtitle {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out 0.3s forwards;
+}
+
+.typed-text {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid var(--neon-cyan);
+  animation: typing 3s steps(30, end) forwards, blink-caret 0.75s step-end infinite;
+  max-width: 0;
+}
+
+@keyframes typing {
+  from { max-width: 0; }
+  to { max-width: 100%; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: var(--neon-cyan); }
+}
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+  .hero-particles {
+    display: none;
+  }
+  
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .hero-stats {
+    gap: 12px;
+  }
+  
+  .hero-stat {
+    padding: 8px 12px;
+  }
+  
+  .hero-stat-num {
+    font-size: 1.2rem;
+  }
+  
+  .typed-text {
+    white-space: normal;
+    border-right: none;
+    animation: none;
+  }
+}
+</style>
 
 <section id="equipment">
   <div class="section-header"><div class="section-tag">// НАШЕ ОБОРУДОВАНИЕ //</div><h2 class="section-title">Топовое <span>железо</span></h2><div class="section-line"></div></div>
@@ -163,14 +479,245 @@
 <div class="live-counter">👥 <span id="counter">8</span> в клубе сейчас</div>
 <button id="scrollTopBtn" class="scroll-to-top" onclick="scrollToTop()">↑</button>
 
-<!-- MODALS -->
-<div id="bookingModal" class="modal-overlay"><div class="modal"><button class="modal-close" onclick="closeModal('booking')">✕</button><h3>ЗАПИСЬ В КЛУБ</h3><p>Оставьте контакты — мы перезвоним</p><form id="bookingForm" onsubmit="submitBooking(event)"><div class="form-group"><label class="form-label">Имя *</label><input type="text" id="name" class="form-input" required></div><div class="form-group"><label class="form-label">Телефон *</label><input type="tel" id="phone" class="form-input" required></div><div class="form-group"><label class="form-label">Услуга</label><select id="service" class="form-select"><option>VR 30 мин</option><option>VR 1 час</option><option>Автосимулятор 15 мин</option><option>PS5 1 час</option><option>Аренда всего клуба</option></select></div><div class="form-group"><label class="form-label">Дата</label><input type="date" id="date" class="form-input"></div><div class="form-group"><label class="form-label">Время</label><input type="time" id="time" class="form-input"></div><div class="form-group"><label class="form-label">Количество человек</label><input type="number" id="people" class="form-input" min="1" max="12"></div><div class="form-group"><label class="form-label">Комментарий</label><textarea rows="2" id="comment" class="form-textarea"></textarea></div><button type="submit" class="form-submit">Отправить</button></form><div id="bookingSuccess" style="display:none;text-align:center;padding:15px">✅ Заявка отправлена! Мы перезвоним.</div></div></div>
 
-<div id="certificateModal" class="modal-overlay"><div class="modal"><button class="modal-close" onclick="closeModal('certificate')">✕</button><h3>🎁 ПОДАРОЧНЫЙ СЕРТИФИКАТ</h3><p>Выберите номинал и оформите красивый электронный сертификат</p><div style="display:flex; gap:12px; margin-bottom:20px"><button class="btn-primary" style="flex:1" onclick="selectCert('vr')">🥽 VR 750₽ (1 час)</button></div><form id="certForm" style="display:none" onsubmit="return false;"><div class="form-group"><label class="form-label">Кому (имя получателя) *</label><input type="text" id="certTo" class="form-input" required></div><div class="form-group"><label class="form-label">От кого (ваше имя) *</label><input type="text" id="certFrom" class="form-input" required></div><div class="form-group"><label class="form-label">Ваш телефон *</label><input type="tel" id="certPhone" class="form-input" required></div><div class="form-group"><label class="form-label">Пожелание</label><textarea id="certWish" rows="2" class="form-textarea"></textarea></div><div id="certPreview" class="certificate-preview" style="display:none"><div class="cert-header">PARADOX VR CLUB</div><div>ПОДАРОЧНЫЙ СЕРТИФИКАТ</div><div class="cert-amount" id="certAmount">750₽</div><div id="certTypeLabel">VR КОМПЛЕКТ 1 час</div><div id="certRecipientName" style="margin:10px 0">[Имя получателя]</div><div id="certWishText" style="font-style:italic; color:var(--neon-pink); display:none"></div><div>От: <span id="certFromName">[Ваше имя]</span></div><div>Действителен 12 месяцев</div><div class="cert-number">Номер: <span id="certNumber">PARADOX-2026-000001</span></div></div><button type="button" class="form-submit" onclick="processCertificate()">Оплатить и скачать PDF</button></form></div></div>
 
-<div id="invitationModal" class="modal-overlay"><div class="modal"><button class="modal-close" onclick="closeModal('invitation')">✕</button><h3>🎂 ПРИГЛАШЕНИЕ НА ДЕНЬ РОЖДЕНИЯ</h3><form id="invForm" onsubmit="downloadInvitation(event)"><div class="form-group"><label class="form-label">Имя именинника *</label><input type="text" id="invName" class="form-input" required></div><div class="form-group"><label class="form-label">Дата и время *</label><input type="datetime-local" id="invDateTime" class="form-input" required></div><div class="form-group"><label class="form-label">От кого приглашение *</label><input type="text" id="invFrom" class="form-input" required></div><div class="form-group"><label class="form-label">Контакт для подтверждения *</label><input type="tel" id="invPhone" class="form-input" required></div><div class="form-group"><label class="form-label">Количество гостей</label><input type="number" id="invGuests" class="form-input" min="1" max="12" value="1"></div><div id="invPreview" class="invitation-preview" style="display:none"><div style="font-size:1.8rem; font-weight:bold;">🎉 ПРИГЛАШЕНИЕ 🎉</div><div>Приглашаем вас на</div><div id="previewInvName" style="font-size:1.5rem; margin:10px 0">[Имя]</div><div id="previewDateTime">📅 Дата и время</div><div>📍 PARADOX VR CLUB, Виктора Шевелева 24</div><div id="previewGuests">Гостей: 1</div><div>От: <span id="previewFrom">[Ваше имя]</span></div><div>Подтверждение: <span id="previewPhone">+7 923 244-02-20</span></div></div><button type="submit" class="form-submit">СКАЧАТЬ ПРИГЛАШЕНИЕ</button></form></div></div>
+<!-- MODAL: Бронирование — КИБЕРПАНК ВЕРСИЯ -->
+<div id="bookingModal" class="modal-overlay">
+  <div class="modal" style="position: relative; overflow: hidden;">
+    <!-- Анимированная неоновая рамка -->
+    <div style="position: absolute; top: -2px; left: -2px; right: -2px; bottom: -2px; background: linear-gradient(45deg, var(--neon-cyan), var(--neon-pink), var(--neon-purple), var(--neon-cyan)); border-radius: 28px; opacity: 0.3; filter: blur(8px); z-index: -1;"></div>
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, transparent, var(--neon-cyan), var(--neon-pink), transparent); animation: scan-line 3s linear infinite;"></div>
+    
+    <button class="modal-close" onclick="closeModal('booking')" style="background: rgba(255,0,110,0.1); border-radius: 50%; width: 40px; height: 40px;">✕</button>
+    
+    <div style="text-align: center; margin-bottom: 20px;">
+      <div style="font-size: 0.7rem; letter-spacing: 4px; color: var(--neon-pink); text-shadow: var(--glow-pink); margin-bottom: 8px;">// АКТИВАЦИЯ СЕАНСА //</div>
+      <h3 style="font-size: 1.8rem; background: linear-gradient(135deg, var(--neon-cyan), var(--neon-pink)); -webkit-background-clip: text; background-clip: text; color: transparent; letter-spacing: 2px;">ЗАПИСЬ В КЛУБ</h3>
+      <div style="width: 60px; height: 2px; background: linear-gradient(90deg, var(--neon-cyan), var(--neon-pink)); margin: 12px auto;"></div>
+      <p style="color: var(--text-dim); font-family: 'Share Tech Mono'; font-size: 0.8rem;">⚡ Оставьте контакты — мы перезвоним в течение 15 минут ⚡</p>
+    </div>
+    
+    <form id="bookingForm" onsubmit="submitBooking(event)">
+      <div class="form-group">
+        <label class="form-label">
+          <span style="color: var(--neon-cyan);">⦿</span> ВАШЕ ИМЯ <span style="color: var(--neon-pink);">*</span>
+        </label>
+        <input type="text" id="name" class="form-input" placeholder="КИБЕР-НИКНЕЙМ" required style="font-family: 'Share Tech Mono'; letter-spacing: 1px;">
+      </div>
+      <div class="form-group">
+        <label class="form-label">
+          <span style="color: var(--neon-cyan);">⦿</span> КОНТАКТНЫЙ ТЕЛЕФОН <span style="color: var(--neon-pink);">*</span>
+        </label>
+        <input type="tel" id="phone" class="form-input" placeholder="+7 (___) ___-__-__" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">
+          <span style="color: var(--neon-cyan);">⦿</span> ВЫБЕРИТЕ ПРОГРАММУ
+        </label>
+        <select id="service" class="form-select" style="cursor: pointer;">
+          <option value="VR 30 мин">🎮 VR КОМПЛЕКТ 30 МИН — 400₽</option>
+          <option value="VR 1 час">🎮 VR КОМПЛЕКТ 1 ЧАС — 750₽ 🔥</option>
+          <option value="Автосимулятор 15 мин">🏎️ MOZA RACING 15 МИН — 300₽</option>
+          <option value="PS5 1 час">🎮 PLAYSTATION 5 1 ЧАС — 350₽</option>
+          <option value="Аренда всего клуба">🏢 АРЕНДА ВСЕГО КЛУБА — 3 800₽/ЧАС</option>
+        </select>
+      </div>
+      
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">📅 ДАТА</label>
+          <input type="date" id="date" class="form-input">
+        </div>
+        <div class="form-group">
+          <label class="form-label">⏰ ВРЕМЯ</label>
+          <input type="time" id="time" class="form-input">
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label class="form-label">👥 КОЛИЧЕСТВО ГОСТЕЙ</label>
+        <input type="number" id="people" class="form-input" min="1" max="12" value="1" placeholder="1-12" style="text-align: center;">
+      </div>
+      
+      <div class="form-group">
+        <label class="form-label">💬 КОММЕНТАРИЙ</label>
+        <textarea rows="2" id="comment" class="form-textarea" placeholder="Например: день рождения, корпоратив, особые пожелания..."></textarea>
+      </div>
+      
+      <button type="submit" class="form-submit" style="position: relative; overflow: hidden;">
+        <span style="position: relative; z-index: 1;">⚡ ОТПРАВИТЬ ЗАЯВКУ ⚡</span>
+        <span style="position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); transition: 0.5s;"></span>
+      </button>
+      
+      <div class="form-note">
+        🔒 Нажимая кнопку, вы соглашаетесь с <a href="#" onclick="openPrivacy(); return false;" style="color: var(--neon-cyan); text-decoration: none; border-bottom: 1px dashed var(--neon-cyan);">политикой конфиденциальности</a>
+      </div>
+    </form>
+    
+    <div id="bookingSuccess" style="display:none; text-align:center; padding:30px;">
+      <div style="font-size: 3rem; margin-bottom: 15px; animation: bounce 0.5s ease;">✅</div>
+      <div style="font-size: 1.3rem; color: var(--neon-green); font-weight: bold; text-shadow: 0 0 10px var(--neon-green); letter-spacing: 2px;">ЗАЯВКА ПРИНЯТА!</div>
+      <div style="width: 50px; height: 2px; background: var(--neon-green); margin: 15px auto;"></div>
+      <div style="color: var(--text-dim); font-family: 'Share Tech Mono';">Мы перезвоним вам в течение 15 минут для подтверждения</div>
+      <div style="margin-top: 20px; font-size: 0.7rem; color: var(--neon-cyan);">✨ СТАТУС: ОЖИДАНИЕ ПОДТВЕРЖДЕНИЯ ✨</div>
+    </div>
+  </div>
+</div>
 
-<div id="privacyModal" class="modal-overlay"><div class="modal" style="max-width:550px;"><button class="modal-close" onclick="closePrivacy()">✕</button><h3>Политика конфиденциальности</h3><div style="font-size:0.8rem; color:var(--text-dim);"><h4>1. Сбор данных</h4><p>Мы собираем имя, телефон для бронирования.</p><h4>2. Использование</h4><p>Только для связи и подтверждения.</p><h4>3. Безопасность</h4><p>Данные не передаются третьим лицам.</p><h4>4. Удаление</h4><p>Напишите на vrclubnsk24@gmail.com</p></div><button class="form-submit" onclick="closePrivacy()">Закрыть</button></div></div>
+<style>
+  /* Дополнительные стили для киберпанк эффектов */
+  @keyframes neonPulse {
+    0%, 100% { box-shadow: 0 0 5px var(--neon-cyan), 0 0 10px var(--neon-cyan); }
+    50% { box-shadow: 0 0 15px var(--neon-cyan), 0 0 25px var(--neon-pink); }
+  }
+  
+  .modal .form-input:focus, .modal .form-select:focus, .modal .form-textarea:focus {
+    animation: neonPulse 1s infinite;
+  }
+  
+  .modal .form-submit {
+    background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
+    position: relative;
+    transition: all 0.3s;
+  }
+  
+  .modal .form-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 25px var(--neon-pink);
+  }
+  
+  .modal .form-submit:active {
+    transform: translateY(0);
+  }
+  
+  .modal .form-submit:hover span:last-child {
+    left: 100%;
+  }
+  
+  .modal select option {
+    background: var(--dark-card);
+    color: var(--text-main);
+    font-family: 'Rajdhani';
+  }
+  
+  .modal .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+  }
+  
+  @media (max-width: 550px) {
+    .modal .form-row {
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+  }
+</style>
+
+<!-- MODAL: Подарочный сертификат -->
+<div id="certificateModal" class="modal-overlay">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('certificate')">✕</button>
+    <h3>🎁 ПОДАРОЧНЫЙ СЕРТИФИКАТ</h3>
+    <p>Выберите номинал и оформите красивый электронный сертификат</p>
+    <div style="display:flex; gap:12px; margin-bottom:20px; flex-wrap:wrap;">
+      <button class="btn-primary" style="flex:1; min-width:140px;" onclick="selectCert('vr')">🥽 VR 750₽ (1 час)</button>
+    </div>
+    <form id="certForm" style="display:none" onsubmit="return false;">
+      <div class="form-group">
+        <label class="form-label">Кому (имя получателя) *</label>
+        <input type="text" id="certTo" class="form-input" placeholder="Например: Александр" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">От кого (ваше имя) *</label>
+        <input type="text" id="certFrom" class="form-input" placeholder="Например: Екатерина" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Ваш телефон *</label>
+        <input type="tel" id="certPhone" class="form-input" placeholder="+7 (___) ___-__-__" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Пожелание</label>
+        <textarea id="certWish" rows="2" class="form-textarea" placeholder="С днём рождения! Желаю незабываемых эмоций! 🎉"></textarea>
+      </div>
+      <div id="certPreview" class="certificate-preview" style="display:none">
+        <div class="cert-header">⚡ PARADOX VR CLUB</div>
+        <div style="font-size:0.8rem; color:var(--neon-cyan); margin:5px 0;">ПОДАРОЧНЫЙ СЕРТИФИКАТ</div>
+        <div class="cert-amount" id="certAmount">750₽</div>
+        <div id="certTypeLabel" style="font-size:0.8rem; color:var(--neon-cyan);">VR КОМПЛЕКТ 1 час</div>
+        <div id="certRecipientName" style="margin:10px 0; font-size:1rem;">🎁 Для: <strong>[Имя получателя]</strong></div>
+        <div id="certWishText" style="font-style:italic; color:var(--neon-pink); display:none; margin:10px 0;"></div>
+        <div style="margin:5px 0;">От: <span id="certFromName">[Ваше имя]</span></div>
+        <div style="font-size:0.7rem; color:var(--text-dim);">✅ Действителен 12 месяцев</div>
+        <div class="cert-number" style="margin-top:10px;">Номер: <span id="certNumber">PARADOX-2026-000001</span></div>
+      </div>
+      <button type="button" class="form-submit" onclick="processCertificate()">💳 Оплатить и скачать PDF</button>
+      <div class="form-note">После оплаты вы получите ссылку на скачивание PDF-сертификата</div>
+    </form>
+  </div>
+</div>
+
+<!-- MODAL: Приглашение на день рождения -->
+<div id="invitationModal" class="modal-overlay">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('invitation')">✕</button>
+    <h3>🎂 ПРИГЛАШЕНИЕ НА ДЕНЬ РОЖДЕНИЯ</h3>
+    <p>Создайте красивое приглашение в стиле киберпанк</p>
+    <form id="invForm" onsubmit="downloadInvitation(event)">
+      <div class="form-group">
+        <label class="form-label">Имя именинника *</label>
+        <input type="text" id="invName" class="form-input" placeholder="Александр" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Дата и время *</label>
+        <input type="datetime-local" id="invDateTime" class="form-input" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">От кого приглашение *</label>
+        <input type="text" id="invFrom" class="form-input" placeholder="Семья Ивановых" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Контакт для подтверждения *</label>
+        <input type="tel" id="invPhone" class="form-input" placeholder="+7 (___) ___-__-__" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Количество гостей</label>
+        <input type="number" id="invGuests" class="form-input" min="1" max="12" value="1">
+      </div>
+      <div id="invPreview" class="invitation-preview" style="display:none">
+        <div style="font-size:1.5rem; font-weight:bold;">🎉 ПРИГЛАШЕНИЕ 🎉</div>
+        <div>Приглашаем вас на</div>
+        <div id="previewInvName" style="font-size:1.3rem; font-weight:bold; margin:10px 0;">[Имя]</div>
+        <div id="previewDateTime">📅 Дата и время</div>
+        <div>📍 PARADOX VR CLUB</div>
+        <div>ул. Виктора Шевелева, 24</div>
+        <div id="previewGuests">👥 Гостей: 1</div>
+        <div>От: <span id="previewFrom">[Ваше имя]</span></div>
+        <div>Подтверждение: <span id="previewPhone">+7 923 244-02-20</span></div>
+      </div>
+      <button type="submit" class="form-submit">📄 СКАЧАТЬ ПРИГЛАШЕНИЕ</button>
+    </form>
+  </div>
+</div>
+
+<!-- MODAL: Политика конфиденциальности -->
+<div id="privacyModal" class="modal-overlay">
+  <div class="modal" style="max-width:550px;">
+    <button class="modal-close" onclick="closePrivacy()">✕</button>
+    <h3>🔒 Политика конфиденциальности</h3>
+    <div style="font-size:0.85rem; color:var(--text-dim); line-height:1.6;">
+      <h4 style="color:var(--neon-cyan); margin-top:15px;">1. Сбор данных</h4>
+      <p>Мы собираем только необходимую информацию: имя, телефон, дату и время бронирования, выбранную услугу.</p>
+      <h4 style="color:var(--neon-cyan); margin-top:15px;">2. Использование данных</h4>
+      <p>Данные используются исключительно для связи с вами, подтверждения бронирования и улучшения качества обслуживания.</p>
+      <h4 style="color:var(--neon-cyan); margin-top:15px;">3. Безопасность</h4>
+      <p>Ваши данные защищены и не передаются третьим лицам без вашего согласия.</p>
+      <h4 style="color:var(--neon-cyan); margin-top:15px;">4. Удаление данных</h4>
+      <p>Вы можете запросить удаление всех ваших данных, написав на <strong>vrclubnsk24@gmail.com</strong></p>
+    </div>
+    <button class="form-submit" onclick="closePrivacy()" style="margin-top:20px;">Закрыть</button>
+  </div>
+</div>
 
 <script src="js/main.js"></script>
 </body>

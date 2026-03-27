@@ -13,6 +13,11 @@ document.addEventListener('DOMContentLoaded', () => {
     initAdvantagesGrid();
     initReviewsGrid();
     initGalleryGrid();
+
+    // Инициализация новых систем
+    if (window.AnimationSystem) {
+        window.AnimationSystem.init();
+    }
 });
 
 // ============ ЧАСТИЦЫ ============
@@ -460,7 +465,7 @@ function initAdvantagesGrid() {
     if (!advantagesGrid) return;
     
     const advantages = [
-        { icon: '🥽', title: 'Новейшее оборудование', desc: 'Oculus Quest 3, PS5, MOZA Racing — всё топовое и обслуженное' },
+        { icon: '🥽', title: 'Новейшее оборудование', desc: 'Oculus Quest 2, PS5, MOZA Racing — всё топовое и обслуженное' },
         { icon: '🎮', title: 'Мультиплеер PS5', desc: 'До 4 игроков одновременно — сражайтесь или кооперируйте' },
         { icon: '🏎️', title: 'Реализм MOZA', desc: 'Силовая обратная связь, педали, ковш-кресло — 48+ трасс' },
         { icon: '🏢', title: '70м² киберпространства', desc: 'Просторный зал, уютная лаунж-зона с диванами и пуфиками' },

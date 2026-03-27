@@ -24,18 +24,47 @@ document.addEventListener('DOMContentLoaded', () => {
 function initParticles() {
     const particlesContainer = document.getElementById('particles');
     if (!particlesContainer) return;
-    
-    const particleCount = isSlowDevice ? 10 : isMobile ? 20 : 40;
-    
+
+    const particleCount = isSlowDevice ? 15 : isMobile ? 30 : 60;
+
     for (let i = 0; i < particleCount; i++) {
         const particle = document.createElement('div');
         particle.classList.add('particle');
+
+        // Случайная геометрическая форма
+        const shapeType = Math.floor(Math.random() * 3);
+        let color, size, shape;
+
+        switch (shapeType) {
+            case 0: // Квадрат
+                particle.style.width = Math.random() * 6 + 3 + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.backgroundColor = 'var(--neon-cyan)';
+                particle.style.borderRadius = '0';
+                particle.style.transform = 'rotate(45deg)';
+                break;
+            case 1: // Треугольник
+                particle.style.width = '0';
+                particle.style.height = '0';
+                particle.style.borderLeft = (Math.random() * 5 + 3) + 'px solid transparent';
+                particle.style.borderRight = particle.style.borderLeft;
+                particle.style.borderBottom = (Math.random() * 8 + 4) + 'px solid var(--neon-magenta)';
+                particle.style.backgroundColor = 'transparent';
+                break;
+            case 2: // Линия
+                particle.style.width = Math.random() * 12 + 6 + 'px';
+                particle.style.height = '2px';
+                particle.style.backgroundColor = 'var(--neon-purple)';
+                particle.style.borderRadius = '1px';
+                break;
+        }
+
         particle.style.left = Math.random() * 100 + '%';
         particle.style.top = Math.random() * 100 + '%';
-        particle.style.width = Math.random() * 4 + 2 + 'px';
-        particle.style.height = particle.style.width;
         particle.style.animationDelay = Math.random() * 5 + 's';
-        particle.style.animationDuration = Math.random() * 10 + 5 + 's';
+        particle.style.animationDuration = Math.random() * 12 + 8 + 's';
+        particle.style.opacity = Math.random() * 0.6 + 0.2;
+
         particlesContainer.appendChild(particle);
     }
 }

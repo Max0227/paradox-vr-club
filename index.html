@@ -518,20 +518,27 @@
             <p>Заполните форму и мы свяжемся с вами в течение 15 минут</p>
         </div>
         
-        <form id="bookingForm" onsubmit="submitBooking(event)">
+        <!-- ВАЖНО: добавлены name атрибуты для отправки на почту -->
+        <form id="bookingForm" action="https://formsubmit.co/748a56b1828b77bbc47b502bd43931a2" method="POST" onsubmit="return submitBookingForm(event)">
+            <!-- Скрытые поля для настройки FormSubmit -->
+            <input type="hidden" name="_next" value="https://max0227.github.io/paradox-vr-club/">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_subject" value="📅 НОВАЯ ЗАЯВКА | PARADOX VR CLUB">
+            <input type="hidden" name="_template" value="table">
+            
             <div class="form-group">
                 <label>Ваше имя *</label>
-                <input type="text" id="name" required placeholder="Александр">
+                <input type="text" id="name" name="Имя" required placeholder="Александр">
             </div>
             
             <div class="form-group">
                 <label>Телефон *</label>
-                <input type="tel" id="phone" required placeholder="+7 (___) ___-__-__">
+                <input type="tel" id="phone" name="Телефон" required placeholder="+7 (___) ___-__-__">
             </div>
             
             <div class="form-group">
                 <label>Выберите услугу *</label>
-                <select id="service" required>
+                <select id="service" name="Услуга" required>
                     <option value="">-- Выберите услугу --</option>
                     <option value="VR 30 мин">🥽 VR Комплект 30 мин — 400₽</option>
                     <option value="VR 1 час">🥽 VR Комплект 1 час — 750₽ 🔥</option>
@@ -545,22 +552,22 @@
             <div class="form-row">
                 <div class="form-group">
                     <label>Дата</label>
-                    <input type="date" id="date">
+                    <input type="date" id="date" name="Дата">
                 </div>
                 <div class="form-group">
                     <label>Время</label>
-                    <input type="time" id="time">
+                    <input type="time" id="time" name="Время">
                 </div>
             </div>
             
             <div class="form-group">
                 <label>Количество гостей</label>
-                <input type="number" id="people" min="1" max="12" value="1">
+                <input type="number" id="people" name="Гостей" min="1" max="12" value="1">
             </div>
             
             <div class="form-group">
                 <label>Комментарий</label>
-                <textarea id="comment" rows="3" placeholder="День рождения, корпоратив, особые пожелания..."></textarea>
+                <textarea id="comment" name="Комментарий" rows="3" placeholder="День рождения, корпоратив, особые пожелания..."></textarea>
             </div>
             
             <button type="submit" class="btn btn-primary btn-block">

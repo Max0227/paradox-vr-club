@@ -76,6 +76,9 @@
         
         <ul class="nav-menu" id="navMenu">
             <li><a href="#equipment" class="nav-link">Оборудование</a></li>
+            <li><a href="#virtual-worlds" class="nav-link">Миры</a></li>
+            <li><a href="#live-events" class="nav-link">Live</a></li>
+            <li><a href="#leaderboard" class="nav-link">Топ</a></li>
             <li><a href="#games" class="nav-link">Игры</a></li>
             <li><a href="#pricing" class="nav-link">Тарифы</a></li>
             <li><a href="#reviews" class="nav-link">Отзывы</a></li>
@@ -110,6 +113,11 @@
         <div class="hero-badge">
             <span class="badge-dot"></span>
             <span class="cyber-accent">НОВОСИБИРСК • ВИКТОРА ШЕВЕЛЕВА 24 • 4+ ГОДА</span>
+        </div>
+
+        <div class="vr-indicator">
+            <span class="vr-dot"></span>
+            <span>VR READY</span>
         </div>
         
         <h1 class="cyber-h1">
@@ -173,6 +181,7 @@
     
     <div class="equipment-grid">
         <div class="equipment-card">
+            <span class="status-indicator available">ДОСТУПНО</span>
             <div class="card-icon">🥽</div>
             <h3>Oculus Quest 2</h3>
             <p class="card-subtitle">Беспроводные VR-шлемы нового поколения</p>
@@ -182,9 +191,14 @@
                 <li><i class="fas fa-check"></i> 40+ эксклюзивных игр</li>
                 <li><i class="fas fa-check"></i> Беспроводное подключение</li>
             </ul>
+            <div class="quick-book">
+                <input type="time" placeholder="Выбери время">
+                <button class="btn-book">ЗАБРОНИРОВАТЬ</button>
+            </div>
         </div>
-        
+
         <div class="equipment-card">
+            <span class="status-indicator available">ДОСТУПНО</span>
             <div class="card-icon">🎮</div>
             <h3>PlayStation 5</h3>
             <p class="card-subtitle">Консоль нового поколения для группы</p>
@@ -194,6 +208,10 @@
                 <li><i class="fas fa-check"></i> 4K/120fps графика</li>
                 <li><i class="fas fa-check"></i> Эксклюзивные тайтлы</li>
             </ul>
+            <div class="quick-book">
+                <input type="time" placeholder="Выбери время">
+                <button class="btn-book">ЗАБРОНИРОВАТЬ</button>
+            </div>
         </div>
         
         <div class="equipment-card">
@@ -227,6 +245,90 @@
     </div>
 </section>
 
+<!-- ============ ВИРТУАЛЬНЫЕ МИРЫ ============ -->
+<section id="virtual-worlds" class="section section-dark">
+    <div class="section-header">
+        <h2 class="section-title">
+            <span class="title-accent">Виртуальные</span> Миры
+        </h2>
+        <p class="section-subtitle">Исследуйте уникальные VR-миры и альтернативные реальности</p>
+    </div>
+
+    <div class="virtual-worlds-grid">
+        <div class="world-card" data-world="cyberpunk">
+            <div class="world-preview">
+                <div class="world-bg cyberpunk-bg"></div>
+                <div class="world-overlay"></div>
+            </div>
+            <h3>CYBERPUNK CITY</h3>
+            <p>Исследуй неоновый мегаполис</p>
+            <span class="players-count">127 игроков</span>
+        </div>
+
+        <div class="world-card" data-world="space">
+            <div class="world-preview">
+                <div class="world-bg space-bg"></div>
+                <div class="world-overlay"></div>
+            </div>
+            <h3>SPACE ODYSSEY</h3>
+            <p>Космические приключения</p>
+            <span class="players-count">89 игроков</span>
+        </div>
+
+        <div class="world-card" data-world="fantasy">
+            <div class="world-preview">
+                <div class="world-bg fantasy-bg"></div>
+                <div class="world-overlay"></div>
+            </div>
+            <h3>FANTASY REALM</h3>
+            <p>Магические миры фэнтези</p>
+            <span class="players-count">156 игроков</span>
+        </div>
+    </div>
+</section>
+<!-- ============ LIVE СОБЫТИЯ ============ -->
+<section id="live-events" class="section">
+    <div class="section-header">
+        <h2 class="section-title">
+            <span class="title-accent">Live</span> События
+        </h2>
+        <p class="section-subtitle">Присоединяйтесь к активным VR-сессиям прямо сейчас</p>
+    </div>
+
+    <div class="live-events-grid">
+        <div class="event-card live">
+            <span class="live-badge">🔴 LIVE</span>
+            <h3>Турнир по VR Racing</h3>
+            <p>Сейчас играют: 45 человек</p>
+            <progress value="45" max="100"></progress>
+            <div class="event-meta">
+                <span class="event-time">22:30 - 00:00</span>
+                <span class="event-type">Турнир</span>
+            </div>
+        </div>
+
+        <div class="event-card upcoming">
+            <span class="upcoming-badge">⏰ СКОРО</span>
+            <h3>VR Horror Night</h3>
+            <p>Ужасы в виртуальной реальности</p>
+            <div class="event-meta">
+                <span class="event-time">Завтра 20:00</span>
+                <span class="event-type">Ивент</span>
+            </div>
+        </div>
+
+        <div class="event-card live">
+            <span class="live-badge">🔴 LIVE</span>
+            <h3>Co-op Adventure</h3>
+            <p>Сейчас играют: 12 человек</p>
+            <progress value="12" max="16"></progress>
+            <div class="event-meta">
+                <span class="event-time">21:15 - 23:00</span>
+                <span class="event-type">Кооператив</span>
+            </div>
+        </div>
+    </div>
+</section>
 <!-- ============ ИГРЫ ============ -->
 <section id="games" class="section section-dark">
     <div class="section-header">
@@ -260,6 +362,48 @@
     <div class="pricing-note">
         <i class="fas fa-lightbulb"></i>
         <p><strong>💡 Совет:</strong> Для компании 4+ человек рекомендуем аренду всего клуба или 4 VR комплекта. Цена 3800₽ уже включает скидку!</p>
+    </div>
+</section>
+
+<!-- ============ ЛИДЕРБОРД ============ -->
+<section id="leaderboard" class="section section-dark">
+    <div class="section-header">
+        <h2 class="section-title">
+            <span class="title-accent">Топ</span> Игроков
+        </h2>
+        <p class="section-subtitle">Лучшие VR-игроки Новосибирска</p>
+    </div>
+
+    <div class="leaderboard-container">
+        <div class="leaderboard-entry rank-1">
+            <span class="rank">🥇 #1</span>
+            <span class="name">NEXUS_PLAYER</span>
+            <span class="score">12,450 PTS</span>
+        </div>
+
+        <div class="leaderboard-entry rank-2">
+            <span class="rank">🥈 #2</span>
+            <span class="name">CYBER_WOLF</span>
+            <span class="score">11,890 PTS</span>
+        </div>
+
+        <div class="leaderboard-entry rank-3">
+            <span class="rank">🥉 #3</span>
+            <span class="name">VR_MASTER</span>
+            <span class="score">10,725 PTS</span>
+        </div>
+
+        <div class="leaderboard-entry">
+            <span class="rank">#4</span>
+            <span class="name">NEON_RIDER</span>
+            <span class="score">9,340 PTS</span>
+        </div>
+
+        <div class="leaderboard-entry">
+            <span class="rank">#5</span>
+            <span class="name">DIGITAL_GHOST</span>
+            <span class="score">8,920 PTS</span>
+        </div>
     </div>
 </section>
 

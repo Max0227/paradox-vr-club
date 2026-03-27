@@ -198,6 +198,45 @@ function sendToTelegram(name, phone, service, date, time, people, comment) {
     }).catch(console.error);
 }
 
+// ============ MOUSE TRACKING ЭФФЕКТ ============
+document.addEventListener('mousemove', (e) => {
+    const cards = document.querySelectorAll('.equipment-card');
+    cards.forEach(card => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        card.style.setProperty('--mouse-x', x + 'px');
+        card.style.setProperty('--mouse-y', y + 'px');
+    });
+});
+
+// ============ SCROLL АНИМАЦИИ ============
+// Intersection Observer для анимации при скролле
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+        }
+    });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.section').forEach(el => observer.observe(el));
+
+// ============ LAZY LOADING ИЗОБРАЖЕНИЙ ============
+// Lazy loading для изображений
+const imageObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const img = entry.target;
+            img.src = img.dataset.src;
+            imageObserver.unobserve(img);
+        }
+    });
+});
+
+document.querySelectorAll('img[data-src]').forEach(img => imageObserver.observe(img));
+
 // ============ ПОДАРОЧНЫЙ СЕРТИФИКАТ ============
 async function processCertificate(event) {
     event.preventDefault();

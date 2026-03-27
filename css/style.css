@@ -1,16 +1,26 @@
 /* ============ ПЕРЕМЕННЫЕ ============ */
 :root {
+    /* Основная палитра - более контрастная */
+    --primary: #00FFFF;      /* Яркий голубой */
+    --secondary: #FF00FF;    /* Яркий магента */
+    --accent: #00FF41;       /* Яркий зеленый */
+    --warning: #FF6600;      /* Оранжевый */
+
     /* Киберпанк цветовая палитра */
     --neon-cyan: #00FFFF;
     --neon-magenta: #FF00FF;
     --neon-purple: #9D00FF;
     --neon-green: #00FF41;
+    --neon-blue: #0080FF;
+    --neon-pink: #FF0080;
+    --neon-lime: #00FF00;
+    --neon-orange: #FF6600;
 
-    /* Фон */
-    --bg-primary: #0a0a0a;
-    --bg-secondary: #1a1a1a;
-    --bg-card: #12122A;
-    --bg-gradient: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    /* Фоны - более темные для контраста */
+    --bg-primary: #0a0a15;
+    --bg-secondary: #15152a;
+    --bg-card: #0f1535;
+    --bg-gradient: linear-gradient(135deg, #0a0a15 0%, #15152a 100%);
 
     /* Текст */
     --text-primary: #FFFFFF;
@@ -22,11 +32,17 @@
     --border-color: #1E1E4A;
     --border-neon: rgba(0, 255, 255, 0.3);
 
-    /* Эффекты свечения */
+    /* Более яркие свечения */
+    --glow-intense: 0 0 30px rgba(0, 255, 255, 0.8);
+    --glow-soft: 0 0 15px rgba(0, 255, 255, 0.4);
     --glow-cyan: 0 0 20px rgba(0, 255, 255, 0.5);
     --glow-magenta: 0 0 20px rgba(255, 0, 255, 0.5);
     --glow-purple: 0 0 20px rgba(157, 0, 255, 0.5);
     --glow-green: 0 0 20px rgba(0, 255, 65, 0.5);
+
+    /* Более контрастные градиенты */
+    --gradient-primary: linear-gradient(135deg, #00FFFF 0%, #FF00FF 50%, #9D00FF 100%);
+    --gradient-secondary: linear-gradient(45deg, #FF0080 0%, #00FFFF 100%);
 
     /* Переходы */
     --transition: 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -58,7 +74,16 @@ body {
     letter-spacing: 0.5px;
 }
 
-/* ============ ТИПОГРАФИЯ ============ */
+/* ============ HOLOGRAM ЭФФЕКТ ============ */
+.hologram {
+    animation: hologramFlicker 0.15s infinite;
+    filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.8));
+}
+
+@keyframes hologramFlicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.95; }
+}
 .cyber-h1 {
     font-family: 'Orbitron', monospace;
     font-size: 4.5rem;
@@ -67,6 +92,16 @@ body {
     letter-spacing: 4px;
     text-shadow: var(--glow-cyan);
     animation: textGlow 2s ease-in-out infinite alternate;
+    background: linear-gradient(90deg, var(--primary), var(--secondary), var(--primary));
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: background-position 0.3s ease;
+}
+
+.cyber-h1:hover {
+    animation: gradientShift 3s linear infinite;
 }
 
 .cyber-h2 {
@@ -120,6 +155,408 @@ body {
 @keyframes pricePulse {
     0%, 100% { opacity: 1; transform: scale(1); }
     50% { opacity: 0.9; transform: scale(1.02); }
+}
+
+/* ============ SCROLL АНИМАЦИИ ============ */
+.section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.section.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ============ VR ИНДИКАТОР ============ */
+.vr-indicator {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1rem;
+    background: rgba(0, 255, 0, 0.1);
+    border: 2px solid #00FF00;
+    border-radius: 40px;
+    font-size: 0.8rem;
+    z-index: 500;
+    backdrop-filter: blur(10px);
+    font-family: 'Orbitron', monospace;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--neon-green);
+    text-shadow: var(--glow-green);
+}
+
+.vr-dot {
+    width: 8px;
+    height: 8px;
+    background: #00FF00;
+    border-radius: 50%;
+    animation: pulse 1s infinite;
+    box-shadow: 0 0 10px #00FF00;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.2); }
+}
+
+/* ============ ВИРТУАЛЬНЫЕ МИРЫ ============ */
+.virtual-worlds-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.world-card {
+    background: linear-gradient(145deg, var(--bg-card), rgba(26, 26, 62, 0.8));
+    border: 2px solid var(--border-neon);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+    cursor: pointer;
+    position: relative;
+}
+
+.world-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    border-color: var(--neon-cyan);
+    box-shadow: 0 20px 60px rgba(0, 255, 255, 0.3);
+}
+
+.world-preview {
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+}
+
+.world-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.6s ease;
+}
+
+.world-card:hover .world-bg {
+    transform: scale(1.1);
+}
+
+.cyberpunk-bg {
+    background: linear-gradient(45deg, #00FFFF, #FF00FF, #9D00FF);
+    background-size: 400% 400%;
+    animation: gradientShift 4s ease infinite;
+}
+
+.space-bg {
+    background: radial-gradient(circle, #001122, #000011);
+    background-image:
+        radial-gradient(circle at 20% 80%, rgba(0, 255, 255, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 0, 255, 0.3) 0%, transparent 50%);
+}
+
+.fantasy-bg {
+    background: linear-gradient(135deg, #2D1B69, #11998E, #38EF7D);
+    background-size: 300% 300%;
+    animation: gradientShift 6s ease infinite;
+}
+
+.world-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.6) 100%);
+}
+
+.world-card h3 {
+    padding: 1.5rem 1.5rem 0.5rem;
+    margin: 0;
+    font-family: 'Orbitron', monospace;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--neon-cyan);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.world-card p {
+    padding: 0 1.5rem;
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.players-count {
+    display: block;
+    padding: 0.5rem 1.5rem 1.5rem;
+    margin: 0;
+    font-size: 0.8rem;
+    color: var(--neon-green);
+    font-family: 'Audiowide', monospace;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ============ LIVE СОБЫТИЯ ============ */
+.live-events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.event-card {
+    background: linear-gradient(145deg, var(--bg-card), rgba(26, 26, 62, 0.8));
+    border: 2px solid var(--border-neon);
+    border-radius: 20px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.event-card.live {
+    border-color: #FF0040;
+    box-shadow: 0 0 30px rgba(255, 0, 64, 0.3);
+}
+
+.event-card.upcoming {
+    border-color: var(--neon-cyan);
+    opacity: 0.8;
+}
+
+.live-badge, .upcoming-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    z-index: 10;
+}
+
+.live-badge {
+    background: rgba(255, 0, 64, 0.9);
+    color: white;
+    animation: pulse 1s infinite;
+}
+
+.upcoming-badge {
+    background: rgba(0, 255, 255, 0.9);
+    color: #000;
+}
+
+.event-card h3 {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 0.5rem 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.event-card p {
+    color: var(--text-secondary);
+    margin: 0 0 1rem 0;
+    font-size: 0.9rem;
+}
+
+.event-card progress {
+    width: 100%;
+    height: 6px;
+    border-radius: 3px;
+    margin-bottom: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.event-card progress::-webkit-progress-bar {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+.event-card progress::-webkit-progress-value {
+    background: linear-gradient(90deg, var(--neon-cyan), var(--neon-green));
+    border-radius: 3px;
+}
+
+.event-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.event-time {
+    font-family: 'Audiowide', monospace;
+    color: var(--neon-cyan);
+}
+
+.event-type {
+    background: rgba(157, 0, 255, 0.2);
+    padding: 0.2rem 0.6rem;
+    border-radius: 10px;
+    border: 1px solid var(--neon-purple);
+    color: var(--neon-purple);
+}
+
+/* ============ ЛИДЕРБОРД ============ */
+.leaderboard-container {
+    max-width: 600px;
+    margin: 3rem auto 0;
+    background: linear-gradient(145deg, var(--bg-card), rgba(26, 26, 62, 0.8));
+    border: 2px solid var(--border-neon);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.leaderboard-entry {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.leaderboard-entry:last-child {
+    border-bottom: none;
+}
+
+.leaderboard-entry:hover {
+    background: rgba(0, 255, 255, 0.05);
+    transform: translateX(5px);
+}
+
+.leaderboard-entry.rank-1 {
+    background: linear-gradient(90deg, rgba(255, 215, 0, 0.1), rgba(255, 215, 0, 0.05));
+    border-left: 4px solid #FFD700;
+}
+
+.leaderboard-entry.rank-2 {
+    background: linear-gradient(90deg, rgba(192, 192, 192, 0.1), rgba(192, 192, 192, 0.05));
+    border-left: 4px solid #C0C0C0;
+}
+
+.leaderboard-entry.rank-3 {
+    background: linear-gradient(90deg, rgba(205, 127, 50, 0.1), rgba(205, 127, 50, 0.05));
+    border-left: 4px solid #CD7F32;
+}
+
+.rank {
+    font-size: 1.2rem;
+    font-weight: 700;
+    min-width: 60px;
+    text-align: center;
+}
+
+.name {
+    flex: 1;
+    font-family: 'Orbitron', monospace;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--neon-cyan);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.score {
+    font-family: 'Audiowide', monospace;
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--neon-green);
+    text-align: right;
+    min-width: 100px;
+}
+
+/* ============ ОБОРУДОВАНИЕ - ДОПОЛНИТЕЛЬНЫЕ ЭЛЕМЕНТЫ ============ */
+.status-indicator {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    z-index: 10;
+}
+
+.status-indicator.available {
+    background: rgba(0, 255, 0, 0.9);
+    color: #000;
+    border: 1px solid #00FF00;
+}
+
+.status-indicator.occupied {
+    background: rgba(255, 165, 0, 0.9);
+    color: #000;
+    border: 1px solid #FFA500;
+}
+
+.quick-book {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.quick-book input[type="time"] {
+    flex: 1;
+    padding: 0.5rem;
+    border: 1px solid var(--border-neon);
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.3);
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+}
+
+.quick-book input[type="time"]::placeholder {
+    color: var(--text-muted);
+}
+
+.quick-book .btn-book {
+    padding: 0.5rem 1rem;
+    background: linear-gradient(45deg, var(--neon-cyan), var(--neon-green));
+    border: none;
+    border-radius: 8px;
+    color: #000;
+    font-family: 'Audiowide', monospace;
+    font-size: 0.7rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.quick-book .btn-book:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% center; }
+    100% { background-position: 200% center; }
 }
 
 /* ============ НАВИГАЦИЯ ============ */
@@ -322,8 +759,22 @@ body {
     transition: left 0.5s;
 }
 
-.btn:hover::before {
-    left: 100%;
+.btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn:active::after {
+    width: 300px;
+    height: 300px;
 }
 
 .btn-primary {
@@ -395,11 +846,13 @@ body {
     width: 100%;
     height: 100%;
     z-index: -1;
-    background: 
+    background:
         radial-gradient(circle at 20% 50%, rgba(0, 245, 255, 0.1) 0%, transparent 50%),
         radial-gradient(circle at 80% 20%, rgba(255, 0, 110, 0.1) 0%, transparent 50%),
         radial-gradient(circle at 40% 80%, rgba(155, 77, 255, 0.1) 0%, transparent 50%),
         linear-gradient(135deg, rgba(1, 0, 20, 0.9) 0%, rgba(10, 14, 39, 0.95) 100%);
+    perspective: 1000px;
+    transform: translateZ(0);
 }
 
 .grid-bg {
@@ -629,7 +1082,7 @@ body {
     border-radius: 20px;
     padding: 2.5rem;
     backdrop-filter: blur(10px);
-    transition: var(--transition-slow);
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.320, 1);
     position: relative;
     overflow: hidden;
     transform-style: preserve-3d;
@@ -655,7 +1108,7 @@ body {
 }
 
 .equipment-card:hover {
-    transform: translateY(-15px) rotateX(5deg) scale(1.02);
+    transform: rotateX(8deg) rotateY(-8deg) translateZ(20px) scale(1.02);
     border-color: var(--neon-cyan);
     box-shadow: 0 20px 60px rgba(0, 255, 255, 0.3), 0 0 100px rgba(123, 47, 255, 0.2);
 }

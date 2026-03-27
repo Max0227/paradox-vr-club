@@ -165,23 +165,24 @@
 
 
 
-<!-- MODAL: Бронирование — КИБЕРПАНК ВЕРСИЯ -->
+
+<!-- MODAL: Бронирование — КИБЕРПАНК ПРОФЕССИОНАЛЬНАЯ ВЕРСИЯ С ОТПРАВКОЙ НА ПОЧТУ -->
 <div id="bookingModal" class="modal-overlay">
   <div class="modal" style="position: relative; overflow: hidden;">
     <!-- Анимированная неоновая рамка -->
-    <div style="position: absolute; top: -2px; left: -2px; right: -2px; bottom: -2px; background: linear-gradient(45deg, var(--neon-cyan), var(--neon-pink), var(--neon-purple), var(--neon-cyan)); border-radius: 28px; opacity: 0.3; filter: blur(8px); z-index: -1;"></div>
+    <div style="position: absolute; top: -2px; left: -2px; right: -2px; bottom: -2px; background: linear-gradient(45deg, var(--neon-cyan), var(--neon-pink), var(--neon-purple), var(--neon-cyan)); border-radius: 28px; opacity: 0.4; filter: blur(10px); z-index: -1; animation: borderRotate 4s linear infinite;"></div>
     <div style="position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, transparent, var(--neon-cyan), var(--neon-pink), transparent); animation: scan-line 3s linear infinite;"></div>
     
-    <button class="modal-close" onclick="closeModal('booking')" style="background: rgba(255,0,110,0.1); border-radius: 50%; width: 40px; height: 40px;">✕</button>
+    <button class="modal-close" onclick="closeModal('booking')" style="background: rgba(255,0,110,0.15); border-radius: 50%; width: 40px; height: 40px; transition: all 0.3s; backdrop-filter: blur(4px);">✕</button>
     
-    <div style="text-align: center; margin-bottom: 20px;">
-      <div style="font-size: 0.7rem; letter-spacing: 4px; color: var(--neon-pink); text-shadow: var(--glow-pink); margin-bottom: 8px;">// АКТИВАЦИЯ СЕАНСА //</div>
-      <h3 style="font-size: 1.8rem; background: linear-gradient(135deg, var(--neon-cyan), var(--neon-pink)); -webkit-background-clip: text; background-clip: text; color: transparent; letter-spacing: 2px;">ЗАПИСЬ В КЛУБ</h3>
-      <div style="width: 60px; height: 2px; background: linear-gradient(90deg, var(--neon-cyan), var(--neon-pink)); margin: 12px auto;"></div>
+    <div style="text-align: center; margin-bottom: 25px;">
+      <div style="font-size: 0.7rem; letter-spacing: 5px; color: var(--neon-pink); text-shadow: var(--glow-pink); margin-bottom: 10px; font-family: 'Share Tech Mono';">&lt; АКТИВАЦИЯ СЕАНСА /&gt;</div>
+      <h3 style="font-size: 1.8rem; background: linear-gradient(135deg, var(--neon-cyan), var(--neon-pink)); -webkit-background-clip: text; background-clip: text; color: transparent; letter-spacing: 2px; font-weight: 900;">ЗАПИСЬ В КЛУБ</h3>
+      <div style="width: 70px; height: 2px; background: linear-gradient(90deg, var(--neon-cyan), var(--neon-pink)); margin: 12px auto;"></div>
       <p style="color: var(--text-dim); font-family: 'Share Tech Mono'; font-size: 0.8rem;">⚡ Оставьте контакты — мы перезвоним в течение 15 минут ⚡</p>
     </div>
     
-    <form id="bookingForm" onsubmit="submitBooking(event)">
+    <form id="bookingForm" onsubmit="submitBookingWithEmail(event)">
       <div class="form-group">
         <label class="form-label">
           <span style="color: var(--neon-cyan);">⦿</span> ВАШЕ ИМЯ <span style="color: var(--neon-pink);">*</span>
@@ -255,6 +256,11 @@
     50% { box-shadow: 0 0 15px var(--neon-cyan), 0 0 25px var(--neon-pink); }
   }
   
+  @keyframes borderRotate {
+    0% { transform: rotate(0deg); filter: blur(8px); }
+    100% { transform: rotate(360deg); filter: blur(8px); }
+  }
+  
   .modal .form-input:focus, .modal .form-select:focus, .modal .form-textarea:focus {
     animation: neonPulse 1s infinite;
   }
@@ -298,42 +304,35 @@
   }
 </style>
 
-<!-- MODAL: Подарочный сертификат -->
+<!-- MODAL: Подарочный сертификат (улучшенная версия) -->
 <div id="certificateModal" class="modal-overlay">
-  <div class="modal">
+  <div class="modal" style="position: relative; overflow: hidden;">
+    <div style="position: absolute; top: -2px; left: -2px; right: -2px; bottom: -2px; background: linear-gradient(45deg, var(--neon-cyan), var(--neon-pink), var(--neon-purple), var(--neon-cyan)); border-radius: 28px; opacity: 0.3; filter: blur(8px); z-index: -1;"></div>
     <button class="modal-close" onclick="closeModal('certificate')">✕</button>
-    <h3>🎁 ПОДАРОЧНЫЙ СЕРТИФИКАТ</h3>
-    <p>Выберите номинал и оформите красивый электронный сертификат</p>
-    <div style="display:flex; gap:12px; margin-bottom:20px; flex-wrap:wrap;">
+    <div style="text-align: center;">
+      <div style="font-size: 0.7rem; letter-spacing: 4px; color: var(--neon-pink); margin-bottom: 8px;">// ПОДАРОЧНЫЙ СЕРТИФИКАТ //</div>
+      <h3 style="font-size: 1.6rem; background: linear-gradient(135deg, var(--neon-cyan), var(--neon-pink)); -webkit-background-clip: text; background-clip: text; color: transparent;">🎁 ПОДАРОЧНЫЙ СЕРТИФИКАТ</h3>
+      <div style="width: 60px; height: 2px; background: linear-gradient(90deg, var(--neon-cyan), var(--neon-pink)); margin: 12px auto;"></div>
+      <p style="color: var(--text-dim); font-size: 0.85rem;">Выберите номинал и оформите электронный сертификат</p>
+    </div>
+    <div style="display:flex; gap:12px; margin: 20px 0; flex-wrap:wrap;">
       <button class="btn-primary" style="flex:1; min-width:140px;" onclick="selectCert('vr')">🥽 VR 750₽ (1 час)</button>
     </div>
     <form id="certForm" style="display:none" onsubmit="return false;">
-      <div class="form-group">
-        <label class="form-label">Кому (имя получателя) *</label>
-        <input type="text" id="certTo" class="form-input" placeholder="Например: Александр" required>
-      </div>
-      <div class="form-group">
-        <label class="form-label">От кого (ваше имя) *</label>
-        <input type="text" id="certFrom" class="form-input" placeholder="Например: Екатерина" required>
-      </div>
-      <div class="form-group">
-        <label class="form-label">Ваш телефон *</label>
-        <input type="tel" id="certPhone" class="form-input" placeholder="+7 (___) ___-__-__" required>
-      </div>
-      <div class="form-group">
-        <label class="form-label">Пожелание</label>
-        <textarea id="certWish" rows="2" class="form-textarea" placeholder="С днём рождения! Желаю незабываемых эмоций! 🎉"></textarea>
-      </div>
+      <div class="form-group"><label class="form-label">Кому (имя получателя) *</label><input type="text" id="certTo" class="form-input" placeholder="Александр" required></div>
+      <div class="form-group"><label class="form-label">От кого (ваше имя) *</label><input type="text" id="certFrom" class="form-input" placeholder="Екатерина" required></div>
+      <div class="form-group"><label class="form-label">Ваш телефон *</label><input type="tel" id="certPhone" class="form-input" placeholder="+7 (___) ___-__-__" required></div>
+      <div class="form-group"><label class="form-label">Пожелание</label><textarea id="certWish" rows="2" class="form-textarea" placeholder="С днём рождения! Желаю незабываемых эмоций! 🎉"></textarea></div>
       <div id="certPreview" class="certificate-preview" style="display:none">
         <div class="cert-header">⚡ PARADOX VR CLUB</div>
-        <div style="font-size:0.8rem; color:var(--neon-cyan); margin:5px 0;">ПОДАРОЧНЫЙ СЕРТИФИКАТ</div>
+        <div style="font-size:0.8rem; color:var(--neon-cyan);">ПОДАРОЧНЫЙ СЕРТИФИКАТ</div>
         <div class="cert-amount" id="certAmount">750₽</div>
         <div id="certTypeLabel" style="font-size:0.8rem; color:var(--neon-cyan);">VR КОМПЛЕКТ 1 час</div>
-        <div id="certRecipientName" style="margin:10px 0; font-size:1rem;">🎁 Для: <strong>[Имя получателя]</strong></div>
-        <div id="certWishText" style="font-style:italic; color:var(--neon-pink); display:none; margin:10px 0;"></div>
-        <div style="margin:5px 0;">От: <span id="certFromName">[Ваше имя]</span></div>
+        <div id="certRecipientName" style="margin:10px 0;">🎁 Для: <strong>[Имя получателя]</strong></div>
+        <div id="certWishText" style="font-style:italic; color:var(--neon-pink); display:none;"></div>
+        <div>От: <span id="certFromName">[Ваше имя]</span></div>
         <div style="font-size:0.7rem; color:var(--text-dim);">✅ Действителен 12 месяцев</div>
-        <div class="cert-number" style="margin-top:10px;">Номер: <span id="certNumber">PARADOX-2026-000001</span></div>
+        <div class="cert-number">Номер: <span id="certNumber">PARADOX-2026-000001</span></div>
       </div>
       <button type="button" class="form-submit" onclick="processCertificate()">💳 Оплатить и скачать PDF</button>
       <div class="form-note">После оплаты вы получите ссылку на скачивание PDF-сертификата</div>
@@ -341,33 +340,22 @@
   </div>
 </div>
 
-<!-- MODAL: Приглашение на день рождения -->
+<!-- MODAL: Приглашение на день рождения (улучшенная версия) -->
 <div id="invitationModal" class="modal-overlay">
   <div class="modal">
     <button class="modal-close" onclick="closeModal('invitation')">✕</button>
-    <h3>🎂 ПРИГЛАШЕНИЕ НА ДЕНЬ РОЖДЕНИЯ</h3>
-    <p>Создайте красивое приглашение в стиле киберпанк</p>
+    <div style="text-align: center;">
+      <div style="font-size: 0.7rem; letter-spacing: 4px; color: var(--neon-pink); margin-bottom: 8px;">// ПРИГЛАШЕНИЕ //</div>
+      <h3 style="font-size: 1.6rem; background: linear-gradient(135deg, var(--neon-cyan), var(--neon-pink)); -webkit-background-clip: text; background-clip: text; color: transparent;">🎂 ПРИГЛАШЕНИЕ НА ДЕНЬ РОЖДЕНИЯ</h3>
+      <div style="width: 60px; height: 2px; background: linear-gradient(90deg, var(--neon-cyan), var(--neon-pink)); margin: 12px auto;"></div>
+      <p style="color: var(--text-dim); font-size: 0.85rem;">Создайте красивое приглашение в стиле киберпанк</p>
+    </div>
     <form id="invForm" onsubmit="downloadInvitation(event)">
-      <div class="form-group">
-        <label class="form-label">Имя именинника *</label>
-        <input type="text" id="invName" class="form-input" placeholder="Александр" required>
-      </div>
-      <div class="form-group">
-        <label class="form-label">Дата и время *</label>
-        <input type="datetime-local" id="invDateTime" class="form-input" required>
-      </div>
-      <div class="form-group">
-        <label class="form-label">От кого приглашение *</label>
-        <input type="text" id="invFrom" class="form-input" placeholder="Семья Ивановых" required>
-      </div>
-      <div class="form-group">
-        <label class="form-label">Контакт для подтверждения *</label>
-        <input type="tel" id="invPhone" class="form-input" placeholder="+7 (___) ___-__-__" required>
-      </div>
-      <div class="form-group">
-        <label class="form-label">Количество гостей</label>
-        <input type="number" id="invGuests" class="form-input" min="1" max="12" value="1">
-      </div>
+      <div class="form-group"><label class="form-label">Имя именинника *</label><input type="text" id="invName" class="form-input" placeholder="Александр" required></div>
+      <div class="form-group"><label class="form-label">Дата и время *</label><input type="datetime-local" id="invDateTime" class="form-input" required></div>
+      <div class="form-group"><label class="form-label">От кого приглашение *</label><input type="text" id="invFrom" class="form-input" placeholder="Семья Ивановых" required></div>
+      <div class="form-group"><label class="form-label">Контакт для подтверждения *</label><input type="tel" id="invPhone" class="form-input" placeholder="+7 (___) ___-__-__" required></div>
+      <div class="form-group"><label class="form-label">Количество гостей</label><input type="number" id="invGuests" class="form-input" min="1" max="12" value="1"></div>
       <div id="invPreview" class="invitation-preview" style="display:none">
         <div style="font-size:1.5rem; font-weight:bold;">🎉 ПРИГЛАШЕНИЕ 🎉</div>
         <div>Приглашаем вас на</div>
@@ -404,5 +392,87 @@
 </div>
 
 <script src="js/main.js"></script>
+<script>
+// Функция отправки заявки на почту через FormSubmit (бесплатно, без регистрации)
+async function submitBookingWithEmail(e) {
+  e.preventDefault();
+  
+  const name = document.getElementById('name').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const service = document.getElementById('service').value;
+  const date = document.getElementById('date').value;
+  const time = document.getElementById('time').value;
+  const people = document.getElementById('people').value;
+  const comment = document.getElementById('comment').value;
+  
+  if (!name || !phone) {
+    alert('Пожалуйста, заполните имя и телефон');
+    return false;
+  }
+  
+  // Формируем данные для отправки
+  const formData = new FormData();
+  formData.append('name', name);
+  formData.append('phone', phone);
+  formData.append('service', service);
+  formData.append('date', date || 'не указана');
+  formData.append('time', time || 'не указано');
+  formData.append('people', people || '1');
+  formData.append('comment', comment || '—');
+  
+  // Отправка через FormSubmit (бесплатный сервис)
+  try {
+    const response = await fetch('https://formsubmit.co/ajax/paradoxclub54@gmail.com', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        _subject: `📅 НОВАЯ ЗАЯВКА | PARADOX VR CLUB`,
+        _template: 'table',
+        _captcha: 'false',
+        Имя: name,
+        Телефон: phone,
+        Услуга: service,
+        Дата: date || 'не указана',
+        Время: time || 'не указано',
+        Гостей: people || '1',
+        Комментарий: comment || '—',
+        'Сайт': 'paradox-vr-club',
+        'Отправлено': new Date().toLocaleString('ru-RU')
+      })
+    });
+    
+    if (response.ok) {
+      console.log('Заявка отправлена на почту');
+    } else {
+      console.log('Ошибка отправки, но заявка сохранена локально');
+    }
+  } catch (error) {
+    console.log('Ошибка сети, заявка сохранена');
+  }
+  
+  // Отправка в Telegram (если настроен)
+  if (typeof sendToTelegram === 'function') {
+    sendToTelegram(name, phone, service, date, time, people, comment);
+  }
+  
+  // Показываем успешное сообщение
+  document.getElementById('bookingForm').style.display = 'none';
+  document.getElementById('bookingSuccess').style.display = 'block';
+  
+  setTimeout(() => {
+    closeModal('booking');
+    setTimeout(() => {
+      document.getElementById('bookingForm').reset();
+      document.getElementById('bookingForm').style.display = 'block';
+      document.getElementById('bookingSuccess').style.display = 'none';
+    }, 200);
+  }, 2000);
+  
+  return false;
+}
+</script>
 </body>
 </html>

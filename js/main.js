@@ -17,12 +17,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // ============ ЧАСТИЦЫ ============
 function initParticles() {
-    if (isSlowDevice) return;
-    
     const particlesContainer = document.getElementById('particles');
     if (!particlesContainer) return;
     
-    const particleCount = isMobile ? 20 : 40;
+    const particleCount = isSlowDevice ? 10 : isMobile ? 20 : 40;
     
     for (let i = 0; i < particleCount; i++) {
         const particle = document.createElement('div');
@@ -378,10 +376,10 @@ function initPricingGrid() {
         {
             name: 'VR Комплект',
             icon: '🥽',
-            desc: 'Беспроводные VR-шлемы Oculus Quest 3',
+            desc: 'Беспроводные VR-шлемы Oculus Quest 2',
             price: '400 ₽',
             period: '30 минут',
-            features: ['Oculus Quest 3', '40+ игр', 'Инструктаж'],
+            features: ['Oculus Quest 2', '40+ игр', 'Инструктаж'],
             popular: false
         },
         {
@@ -390,8 +388,17 @@ function initPricingGrid() {
             desc: 'Полное погружение в виртуальную реальность',
             price: '750 ₽',
             period: '1 час',
-            features: ['Oculus Quest 3', 'Выбор игры', 'Смена игр'],
+            features: ['Oculus Quest 2', 'Выбор игры', 'Смена игр'],
             popular: true
+        },
+        {
+            name: '4 VR Комплекта',
+            icon: '🥽',
+            desc: 'Для компании друзей',
+            price: '2 550 ₽',
+            period: '1 час',
+            features: ['4 Oculus Quest 2', 'Групповые игры', 'Инструктаж'],
+            popular: false
         },
         {
             name: 'MOZA Racing',
@@ -399,7 +406,7 @@ function initPricingGrid() {
             desc: 'Профессиональный автосимулятор',
             price: '300 ₽',
             period: '15 минут',
-            features: ['Force Feedback', '48+ трасс', 'Forza 5, BeamNG'],
+            features: ['Force Feedback', '4 игры, 100+ трасс', 'Forza 5, BeamNG.drive'],
             popular: false
         },
         {
@@ -408,7 +415,7 @@ function initPricingGrid() {
             desc: 'Для настоящих гонщиков',
             price: '550 ₽',
             period: '30 минут',
-            features: ['Force Feedback', '48+ трасс', 'Любая игра'],
+            features: ['Force Feedback', '4 игры, 100+ трасс', 'Любая игра'],
             popular: false
         },
         {
@@ -457,7 +464,7 @@ function initAdvantagesGrid() {
         { icon: '🎮', title: 'Мультиплеер PS5', desc: 'До 4 игроков одновременно — сражайтесь или кооперируйте' },
         { icon: '🏎️', title: 'Реализм MOZA', desc: 'Силовая обратная связь, педали, ковш-кресло — 48+ трасс' },
         { icon: '🏢', title: '70м² киберпространства', desc: 'Просторный зал, уютная лаунж-зона с диванами и пуфиками' },
-        { icon: '🎂', title: 'Дни рождения', desc: 'Специальный пакет со скидкой 15%. Весь клуб для вашей компании' },
+        { icon: '🎂', title: 'Дни рождения', desc: 'Скидки 15% на аренду клуба. 750₽ за VR без скидки, 2550₽ за 4 VR' },
         { icon: '🍕', title: 'Своя еда', desc: 'Приносите любимые перекусы и напитки. Уютная зона отдыха' },
         { icon: '📍', title: 'Удобная локация', desc: 'Ул. Виктора Шевелева, 24. Бесплатная парковка у входа' },
         { icon: '⭐', title: '4 года опыта', desc: 'Более 2 847 довольных гостей. Профессиональные инструкторы' }

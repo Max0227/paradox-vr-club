@@ -272,6 +272,11 @@ body {
     width: 100%;
     height: 100%;
     z-index: -1;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(0, 245, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 0, 110, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, rgba(155, 77, 255, 0.1) 0%, transparent 50%),
+        linear-gradient(135deg, rgba(1, 0, 20, 0.9) 0%, rgba(10, 14, 39, 0.95) 100%);
 }
 
 .grid-bg {
